@@ -25,10 +25,10 @@ FROM staff;
 SELECT DISTINCT release_year
 FROM film;
 
-SELECT COUNT(store_id)
+SELECT COUNT(DISTINCT store_id)
 FROM store;
 
-SELECT COUNT(staff_id)
+SELECT COUNT(DISTINCT staff_id)
 FROM staff;
 
 SELECT 
@@ -37,7 +37,7 @@ SELECT
 	(COUNT(inventory_id)-COUNT(return_date)) AS available_to_rent
 FROM rental;
 
-SELECT DISTINCT last_name
+SELECT COUNT(DISTINCT last_name)
 FROM actor;
 
 SELECT title, length
@@ -53,11 +53,11 @@ WHERE first_name = "SCARLETT"
 
 SELECT title, length
 FROM film
-WHERE title = "ARMAGEDDON" AND length = 100
+WHERE title LIKE "%ARMAGEDDON%" AND length > 100
 ;
 
-SELECT title, special_features
+SELECT COUNT(special_features)
 FROM film
-WHERE special_features = "Behind the Scenes"
+WHERE special_features LIKE "%Behind the Scenes%"
 ;
 
